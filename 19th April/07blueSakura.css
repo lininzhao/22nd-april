@@ -1,0 +1,17 @@
+.petal{
+    width: 10px;
+    height: 10px;
+    border-radius: 0% 100% 0 100%/ 0% 100% 0 100%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    z-index: 999;
+    pointer-events: none;
+    background:#fcc;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+#container{
+    width: 100%;
+    height: 800px;
+    background-color: skyblue;
+}

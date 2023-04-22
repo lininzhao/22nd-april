@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 实现将一箱旧的水果 var old = ['apple','banana','strawberry'] 装到新的箱子上 var new = [] ，每间隔 1 秒装一个，每装完 1 个都要打印输出旧的箱子和新的箱子。
+        var old = ['apple','banana','strawberry'];
+        var newArr=[];
+        var timer=setTimeout(function(){
+            if(old.length>0){
+                newArr.push(old.shift());
+                console.log('新箱子'+newArr);
+                console.log('旧箱子'+old);
+            }else{
+                clearInterval(timer);
+            }
+        },1000)
+        
+
+    </script>
+</body>
+</html>

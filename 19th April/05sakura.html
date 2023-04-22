@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./06style.css">
+</head>
+<body>
+    <script>
+        // 创建樱花元素
+function createSakura() {
+  const sakura = document.createElement('div');
+  sakura.classList.add('sakura');
+  const blossom = document.createElement('div');
+  blossom.classList.add('blossom');
+  sakura.appendChild(blossom);
+  document.body.appendChild(sakura);
+  // 设置樱花随机位置
+  const startLeft = Math.random() * window.innerWidth;
+  sakura.style.left = `${startLeft}px`;
+  const startTop = Math.random() * -100;
+  sakura.style.top = `${startTop}px`;
+  // 设置樱花随机旋转角度
+  const startRotation = Math.random() * 360;
+  sakura.style.transform = `rotate(${startRotation}deg)`;
+  // 设置樱花随机大小
+  const startSize = Math.random() * 20 + 10;
+  blossom.style.width = `${startSize}px`;
+  blossom.style.height = `${startSize}px`;
+  // 设置樱花随机飘落速度
+  const speed = Math.random() * 5 + 5;
+  moveSakura(sakura, speed);
+}
+
+// 移动樱花元素
+function moveSakura(sakura, speed) {
+  let position = parseFloat(sakura.style.top);
+  const windSpeed = Math.random() * 10 - 5;
+  let rotation = parseFloat(sakura.style.transform.slice(7, -4));
+  rotation += Math.random() * 0.5 - 0.25;
+  sakura.style.transform = `rotate(${rotation}deg)`;
+  const intervalId = setInterval(() => {
+    position += speed;
+    sakura.style.top = `${position}px`;
+    sakura.style.left = `${parseFloat(sakura.style.left) + windSpeed}px`;
+    if (position > window.innerHeight) {
+      clearInterval(intervalId);
+      sakura.remove();
+    }
+  }, 50);
+}
+
+// 创建多个樱花元素
+function createSakuras(num) {
+  for (let i = 0; i < num; i++) {
+    setTimeout(() => createSakura(), i * 100);
+  }
+}
+
+// 初始化樱花特效
+function initSakuraEffect() {
+  createSakuras(20);
+  setInterval(() => createSakuras(5), 5000);
+}
+
+initSakuraEffect();
+
+    </script>
+</body>
+</html>

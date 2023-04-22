@@ -1,0 +1,13 @@
+.sakura {
+    position: fixed;
+    z-index: 9999;
+  }
+  
+  .blossom {
+    background-color: #fcc;
+    border-radius: 0 100% 0 100% / 0 100% 0 100%;
+    background-color: #ffe9f7;
+    position: relative;
+    transform: translate(-50%, -50%);
+  }
+  
